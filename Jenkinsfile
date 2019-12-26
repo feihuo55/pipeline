@@ -3,8 +3,10 @@ pipeline {
   stages {
     stage('PactBrokerDocker') {
       steps {
-        dir(path: 'pact-broker')
-        sh 'sudo docker-compose up'
+        dir(path: 'pact-broker') {
+          sh 'sudo docker-compose up'
+        }
+
       }
     }
 
