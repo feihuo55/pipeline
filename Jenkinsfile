@@ -12,8 +12,10 @@ pipeline {
 
     stage('BuildComsumer') {
       steps {
-        dir(path: 'pact-consumer')
-        sh 'mvn test'
+        dir(path: 'pact-consumer') {
+          sh 'mvn test'
+        }
+
       }
     }
 
