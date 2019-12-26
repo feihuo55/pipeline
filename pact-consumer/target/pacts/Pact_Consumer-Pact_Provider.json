@@ -1,0 +1,44 @@
+{
+    "provider": {
+        "name": "Pact_Provider"
+    },
+    "consumer": {
+        "name": "Pact_Consumer"
+    },
+    "interactions": [
+        {
+            "description": "a request for Pact",
+            "request": {
+                "method": "GET",
+                "path": "/pactDemo"
+            },
+            "response": {
+                "status": 200,
+                "headers": {
+                    "Content-Type": "application/json;charset=UTF-8"
+                },
+                "body": [
+                    {
+                        "value": 42
+                    },
+                    {
+                        "value": 100
+                    }
+                ]
+            },
+            "providerStates": [
+                {
+                    "name": ""
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "pactSpecification": {
+            "version": "3.0.0"
+        },
+        "pact-jvm": {
+            "version": "3.5.24"
+        }
+    }
+}
