@@ -3,7 +3,21 @@ pipeline {
   stages {
     stage('PactBrokerDocker') {
       steps {
-        sh 'cd pact-broker && sudo docker-compose up'
+        dir(path: 'pact-broker')
+        sh 'sudo docker-compose up'
+      }
+    }
+
+    stage('BuildComsumer') {
+      steps {
+        dir(path: 'pact-consumer')
+        sh 'mvn test'
+      }
+    }
+
+    stage('PublishPact') {
+      steps {
+        sh 'mvn pact:publish'
       }
     }
 
