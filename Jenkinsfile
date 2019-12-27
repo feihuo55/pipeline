@@ -25,5 +25,14 @@ pipeline {
       }
     }
 
+    stage('ClosePactBroker') {
+      steps {
+        dir(path: 'pact-broke') {
+          sh 'sudo /usr/local/bin/docker-compose down -d'
+        }
+
+      }
+    }
+
   }
 }
