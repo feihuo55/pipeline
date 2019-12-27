@@ -27,7 +27,10 @@ pipeline {
 
     stage('PublishPact') {
       steps {
-        sh 'mvn pact:publish'
+        dir(path: 'pact-consumer') {
+          sh 'mvn pact:publish'
+        }
+
       }
     }
 
