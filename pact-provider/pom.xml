@@ -58,7 +58,7 @@
                             <name>Pact_Provider</name>
                             <protocol>http</protocol>
                             <host>localhost</host>
-                            <port>8181</port>
+                            <port>8888</port>
                             <path>/</path>
                             <pactFileDirectory>src/main/resources/pact-from-consumer</pactFileDirectory>
                         </serviceProvider>
