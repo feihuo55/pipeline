@@ -3,15 +3,14 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        sh '''#!/bin/bash -il
-mvn clean compile'''
+        sh 'mvn clean compile'
       }
     }
 
     stage('PactBroker') {
       steps {
         dir(path: 'pact-broker') {
-          sh 'sudo /usr/local/bin/docker-compose up -d'
+          sh 'sudo /usr/local/bin/docker-compose up -d'
         }
 
       }
