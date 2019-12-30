@@ -10,7 +10,7 @@ pipeline {
     stage('BuildProvider') {
       steps {
         dir(path: 'pact-provider') {
-          sh 'mvn spring-boot:run'
+          sh 'nohup mvn spring-boot:run &'
         }
 
       }
@@ -29,6 +29,15 @@ pipeline {
       steps {
         dir(path: 'pact-broke') {
           sh 'sudo /usr/local/bin/docker-compose down -d'
+        }
+
+      }
+    }
+
+    stage('ShutdownProvider') {
+      steps {
+        dir(path: 'pact-provider') {
+          sh 'curl -X POST localhost:8888/shutdown'
         }
 
       }
