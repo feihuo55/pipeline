@@ -10,7 +10,7 @@ pipeline {
     stage('BuildProvider') {
       steps {
         dir(path: 'pact-provider') {
-          sh 'nohup mvn spring-boot:run &'
+          sh 'mvn spring-boot:run &'
         }
 
       }
