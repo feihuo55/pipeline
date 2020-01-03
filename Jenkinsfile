@@ -55,7 +55,7 @@ pipeline {
     stage('Build Consumer Docker') {
       steps {
         dir(path: 'pact-consumer') {
-          sh 'docker build -t pact-consumer .'
+          sh '/usr/local/bin/docker build -t pact-consumer .'
         }
 
       }
@@ -64,10 +64,10 @@ pipeline {
     stage('Publish Consumer To Repository') {
       steps {
         dir(path: 'pact-consumer') {
-          sh 'docker tag $(docker images --filter=reference=pact-consumer --format "{{.ID}}") feihuo55/cdcdemo'
+          sh '/usr/local/bin/docker tag $(docker images --filter=reference=pact-consumer --format "{{.ID}}") feihuo55/cdcdemo'
+          sh '/usr/local/bin/docker push feihuo55/cdcdemo'
         }
 
-        sh 'docker push feihuo55/cdcdemo'
       }
     }
 
