@@ -23,4 +23,9 @@ public class PactProducerApplication {
     public ResponseEntity<List<pactDemo>> foos() {
         return new ResponseEntity<>(Arrays.asList(new pactDemo(42), new pactDemo(100)), HttpStatus.OK);
     }
+
+    @RequestMapping("/")
+    public String home() {
+        return "Hello SQE MicroService Demo";
+    }
 }
