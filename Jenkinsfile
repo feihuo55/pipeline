@@ -65,7 +65,6 @@ pipeline {
       steps {
         dir(path: 'pact-consumer') {
           sh '/usr/local/bin/docker tag $(/usr/local/bin/docker images --filter=reference=pact-consumer --format "{{.ID}}") feihuo55/cdcdemo'
-          sh '/usr/local/bin/docker login --username feihuo55'
           sh '/usr/local/bin/docker push feihuo55/cdcdemo'
         }
 
