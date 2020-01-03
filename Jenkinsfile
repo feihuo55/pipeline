@@ -28,7 +28,7 @@ pipeline {
     stage('Start PactBroker') {
       steps {
         dir(path: 'pact-broker') {
-          sh 'sudo /usr/local/bin/docker-compose up'
+          sh 'sudo /usr/local/bin/docker-compose up -d'
         }
 
       }
